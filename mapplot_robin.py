@@ -10,7 +10,7 @@ from matplotlib.colors import *
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import matplotlib.colors as mcolors
 
-df = pd.read_csv('testcut.csv')
+df = pd.read_csv('iploc2.csv')
 dfgp = df.groupby(['latitude','longitude'],as_index=False).agg(['count']).reset_index()
 
 dfgp['count'] = dfgp[('city','count')]
@@ -56,4 +56,4 @@ cax = divider.append_axes("right", size="1%", pad=0.05)
 
 plt.colorbar(im, cax=cax)
 
-plt.savefig('map_robin.png')
+plt.savefig('map_robin.png', bbox_inches='tight')
